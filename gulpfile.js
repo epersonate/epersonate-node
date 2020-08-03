@@ -3,11 +3,13 @@ let babel = require('gulp-babel');
 let eslint = require('gulp-eslint');
 let excludeGitignore = require('gulp-exclude-gitignore');
 let replace = require('gulp-replace');
+process.env.VERSION = '0.0.4';
 
 gulp.task('build', function () {
   return gulp
     .src('lib/**/*.js')
-    .pipe(replace(/ENV_BASE_URL/g, process.env.BASE_URL))
+    .pipe(replace(/\$ENV_BASE_URL\$/g, process.env.BASE_URL))
+    .pipe(replace(/\$ENV_BASE_VERSION\$/g, process.env.VERSION))
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
@@ -29,7 +31,7 @@ gulp.task('dev-env', function (done) {
 
 gulp.task('prod-env', function (done) {
   process.env.NODE_ENV = 'production';
-  process.env.BASE_URL = 'http://api.epersonate.com';
+  process.env.BASE_URL = 'https://api.epersonate.com';
   return done();
 });
 

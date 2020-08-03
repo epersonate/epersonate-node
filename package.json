@@ -1,6 +1,6 @@
 {
-  "name": "epersonate",
-  "version": "0.0.1",
+  "name": "@epersonate/epersonate",
+  "version": "0.0.4",
   "description": "Epersonate.com Node API Wrapper",
   "main": "dist/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/epersonate/epersonate-node.git"
+    "url": "git+https://github.com/epersonate/epersonate-node.git"
   },
   "keywords": [
     "epersonate",
@@ -42,5 +42,8 @@
     "gulp-cli": "^2.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-exclude-gitignore": "^1.2.0"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

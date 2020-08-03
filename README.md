@@ -1,14 +1,14 @@
 # epersonate-node
-> Official Node Wrapper for EPersonate API.
+> [Official Node Wrapper](https://www.npmjs.com/package/@epersonate/epersonate) for EPersonate API.
 
 ## EPersonate Documentation
 
-[Official EPersonate Documentation](https://docs.epersonate.com)
+[Official EPersonate Documentation](http://docs.epersonate.com)
 
 ## Installation
 
 ```bash
-npm install -s epersonate
+npm install -s @epersonate/epersonate
 ```
 
 
@@ -16,10 +16,14 @@ npm install -s epersonate
 
 Require EPersonate:
 
-```node
-const Epersonate = require('epersonate');
-// OR
-import EPersonate from 'epersonate';
+```js
+const Epersonate = require('@epersonate/epersonate'); 
+// Or with ES6 syntax
+import * as Epersonate from '@epersonate/epersonate';
+
+const epersonate = new Epersonate.Client({
+    token: Env.get('EPERSONATE_TOKEN')
+});
 ```
 
 
@@ -27,35 +31,31 @@ import EPersonate from 'epersonate';
 
 Go to https://epersonate.com/app/settings > Personal Access Token > Create Personal Access Token
 
-Add this token to your environment variables.
- 
-```node
-const epersonate = new EPersonate.Client({ token: 'EPERSONATE_TOKEN'});
-```
-
-**Note: Replace `EPERSONATE_TOKEN` with the token generated before.**
+**Note: Replace `EPERSONATE_TOKEN` with the newly generated token.**
 
 
 ## Example Usage
 
 ```javascript
-function login(req, res) {
+function login(req, res, next) {
     // Your logic.
     (...)
     const impersonation = await epersonate.verify({
         token: req.header('x-epersonate')
     });
-    if (!impersonation.body.valid)
-        return;
+    if (!impersonation.valid)
+        return next();
 
-    const user = await User.find(impersonation.body.userId);
+    const user = await User.find(impersonation.userId);
+
+    return next();
 }
 ```
 
-Alternatively, you can pass the request object to epersonate verify method:
+Alternatively, you can pass the request object to epersonate verify method, it will take care of extracting the `x-epersonate` header or cookie:
 
 ```javascript
-    const res = await epersonate.verify({
+    const impersonation = await epersonate.verify({
         request: req
     });
 ```
@@ -81,7 +81,8 @@ const EPersonate = require('./dist/index');
 
 ## Deploy
 
+Update version in package.json && gulpfile.js
+
 ```bash
-npm version
-npm build
+npm publish
 ```
