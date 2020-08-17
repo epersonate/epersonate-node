@@ -3,7 +3,7 @@ let babel = require('gulp-babel');
 let eslint = require('gulp-eslint');
 let excludeGitignore = require('gulp-exclude-gitignore');
 let replace = require('gulp-replace');
-process.env.VERSION = '0.0.4';
+process.env.VERSION = '1.0.0';
 
 gulp.task('build', function () {
   return gulp

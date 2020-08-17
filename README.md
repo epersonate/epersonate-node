@@ -1,9 +1,9 @@
 # epersonate-node
-> [Official Node Wrapper](https://www.npmjs.com/package/@epersonate/epersonate) for EPersonate API.
+> [Official Node Wrapper](https://www.npmjs.com/package/@epersonate/epersonate) for ePersonate API.
 
-## EPersonate Documentation
+## ePersonate Documentation
 
-[Official EPersonate Documentation](http://docs.epersonate.com)
+[Official ePersonate Documentation](http://docs.epersonate.com)
 
 ## Installation
 
@@ -14,7 +14,7 @@ npm install -s @epersonate/epersonate
 
 ## Usage
 
-Require EPersonate:
+Require ePersonate:
 
 ```js
 const Epersonate = require('@epersonate/epersonate'); 
@@ -73,10 +73,10 @@ gulp lint
 ```
 
 
-Require EPersonate:
+Require ePersonate:
 
 ```node
-const EPersonate = require('./dist/index');
+const ePersonate = require('./dist/index');
 ```
 
 ## Deploy

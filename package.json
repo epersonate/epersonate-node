@@ -1,7 +1,7 @@
 {
   "name": "@epersonate/epersonate",
-  "version": "0.0.4",
-  "description": "Epersonate.com Node API Wrapper",
+  "version": "1.0.0",
+  "description": "ePersonate.com Node API Wrapper",
   "main": "dist/index.js",
   "scripts": {
     "test": "gulp test",
@@ -19,7 +19,7 @@
     "node",
     "api"
   ],
-  "author": "Epersonate",
+  "author": "ePersonate",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/epersonate/epersonate-node/issues"
