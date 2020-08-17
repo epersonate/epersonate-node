@@ -1,5 +1,5 @@
 {
-  "name": "@epersonate/epersonate",
+  "name": "epersonate-dev",
   "version": "1.0.2",
   "description": "ePersonate.com Node API Wrapper",
   "main": "dist/index.js",
