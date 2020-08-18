@@ -60,6 +60,21 @@ Alternatively, you can pass the request object to epersonate verify method, it w
     });
 ```
 
+## Storing impersonation events
+
+```javascript
+    const impersonation = await epersonate.verify({
+        request: req,
+        name: req.url,
+        metadata: {
+            id: req.id,
+            method: req.method,
+            'foo': 'bar',
+            (...)
+        }
+    });
+```
+
 ## Running the code locally
 
 ```bash

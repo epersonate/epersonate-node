@@ -102,7 +102,9 @@ var Client = /*#__PURE__*/function () {
     key: "verifyImpersonation",
     value: function verifyImpersonation(_ref2, done) {
       var request = _ref2.request,
-          token = _ref2.token;
+          token = _ref2.token,
+          name = _ref2.name,
+          metadata = _ref2.metadata;
 
       if (request && !token) {
         try {
@@ -116,7 +118,9 @@ var Client = /*#__PURE__*/function () {
         valid: false
       });
       return this.post('/api/v1/impersonations/', {
-        token: token
+        token: token,
+        name: name,
+        metadata: metadata
       }, function (err, res) {
         if (err) return done(err, {
           valid: false
@@ -128,10 +132,14 @@ var Client = /*#__PURE__*/function () {
     key: "verify",
     value: function verify(_ref3, done) {
       var request = _ref3.request,
-          token = _ref3.token;
+          token = _ref3.token,
+          name = _ref3.name,
+          metadata = _ref3.metadata;
       return this.promiseProxy(done, {
         request: request,
-        token: token
+        token: token,
+        name: name,
+        metadata: metadata
       }, this.verifyImpersonation.bind(this));
     }
   }]);
